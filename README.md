@@ -3,7 +3,7 @@ Give your site a random background color from the Bad Idea Factory brand guideli
 
 Compatibility: IE9+
 
-## usage
+## Usage
 
 Installation:
 
@@ -15,34 +15,50 @@ Script:
 
 ```js
 // ES6+
-import { randomBgColor } from '@biffud/random-bg-color'
+import { setRandomBgColor } from '@biffud/random-bg-color'
 
 // ES5 / AMD / CommonJS
-var randomBgColor = require('@biffud/random-bg-color')
+var setRandomBgColor = require('@biffud/random-bg-color')
 ```
 
 ```html
-<!-- global -->
-<script src="./node_modules/@biffud/random-bg-color/src/bgcolor.js"></script>
+<!-- exported on the BIFFUD global object -->
+<script src="./node_modules/@biffud/random-bg-color/src/index.js"></script>
 <script>
-  setRandomBgColor()
+  BIFFUD.setRandomBgColor()
 </script>
 ```
 
-## options
+## Options
 
-### set the background color of elements other than the document body
+### Set the background color of elements other than the document body
 
 ```js
-// give it a valid CSS selector
+// Give it a valid CSS selector
 setRandomBgColor('h1')
 
-// or
+// Complex selectors work too; anything that document.querySelectorAll() accepts
 setRandomBgColor('.some-element > p.nested-child:first-child')
+
+// You can also pass in a reference to an element directly
+const el = document.createElement('div')
+setRandomBgColor(el)
 ```
 
-### prevent animated transitions
+### Override transition style
+
+This isn't a setting. Change it via CSS instead.
+
+```css
+body {
+  transition: background-color 500ms ease-in-out !important;
+}
+```
+
+### Prevent animated transitions
+
+Pass in an object to the second argument like this:
 
 ```js
-setRandomBgColor(null, true)
+setRandomBgColor(null, { disallowTransition: true })
 ```

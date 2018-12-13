@@ -53,19 +53,25 @@
    * elements found by that selector will have its background color
    * changed to the same randomly selected color.
    *
-   * @param {string} selector - defaults to <body>
-   * @param {boolean} disallowTransition - if false, does not override
-   *    the CSS transition property. Defaults to `true`
+   * @param {string|HTMLElement} selector - defaults to <body>
+   * @param {Object} options - accepts the following properties:
+   *    disallowTransitions - if false, does not override
+   *      the CSS transition property. Defaults to `true`
    * @return undefined (this is a side effect)
    */
-  function setRandomBgColor (selector, disallowTransition) {
-    var els = [document.body];
-    var css;
-    if (disallowTransition === true) {
+  function setRandomBgColor (selector, options) {
+    var els, css;
+    var options = options || {};
+    if (options.disallowTransition !== true) {
       css = 'background-color 120ms';
     }
     if (typeof selector === 'string') {
-      els = document.querySelectorAll(selector);
+      els = Array.prototype.slice.call(document.querySelectorAll(selector));
+    } else if (selector instanceof Element) {
+      // TODO: allow array of elements
+      els = [selector];
+    } else {
+      els = [document.body];
     }
     if (Array.isArray(els)) {
       els.forEach(function (el) {
