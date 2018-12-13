@@ -25,8 +25,9 @@ var setRandomBgColor = require('@biffud/random-bg-color')
 ```
 
 ```html
+<!-- usage with CDN -->
 <!-- exported on the BIFFUD global object -->
-<script src="./node_modules/@biffud/random-bg-color/src/index.js"></script>
+<script src="https://unpkg.com/@biffud/random-bg-color@1.0.0/src/index.js"></script>
 <script>
   BIFFUD.setRandomBgColor()
 </script>
