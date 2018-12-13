@@ -55,7 +55,7 @@
    *
    * @param {string|HTMLElement} selector - defaults to <body>
    * @param {Object} options - accepts the following properties:
-   *    disallowTransitions - if false, does not override
+   *    disallowTransition - if false, does not override
    *      the CSS transition property. Defaults to `true`
    * @return undefined (this is a side effect)
    */

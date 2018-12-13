@@ -1,0 +1,15 @@
+# v1.0.0
+
+- **Official release.**
+- Breaking changes from alpha:
+  - Exported function is now `setRandomBgColor()`.
+  - If imported via `<script>` tag, `setRandomBgColor` will be exported on the `BIFFUD` object, rather globally. `BIFFUD` is a global object. Why do this? It's what we in the biz call the [YUI](https://yuilibrary.com/yui/docs/yui/) pattern. I'm just kidding. No one calls it that.
+  - You can now pass in a reference to an element directly, if you don't want to use string selectors.
+  - The `disallowTransition` argument has been replaced with an `options` object instead, where `disallowTransition` is the only property of that object that we understand. That way there's less technical hurdles to bloating this library with more options later.
+- Fix a grip o' typos in the documentation.
+- Add tests.
+- Add example HTML (which is also a test).
+
+# v1.0.0-alpha1
+
+- Created on a train between Philadelphia and New York, so this package is technically a birthright citizen of New Jersey
