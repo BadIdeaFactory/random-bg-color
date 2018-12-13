@@ -1,0 +1,22 @@
+{
+  "name": "@biffud/random-bg-color",
+  "version": "1.0.0-alpha1",
+  "description": "Give your site a random background color from the Bad Idea Factory brand guidelines",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BadIdeaFactory/random-bg-color.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BadIdeaFactory/random-bg-color/issues"
+  },
+  "homepage": "https://github.com/BadIdeaFactory/random-bg-color#readme",
+  "directories": {
+    "test": "test"
+  }
+}
