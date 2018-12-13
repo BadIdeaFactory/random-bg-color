@@ -2,7 +2,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/BadIdeaFactory/random-bg-color/badge.svg?branch=master)](https://coveralls.io/github/BadIdeaFactory/random-bg-color?branch=master)
 
 # random-bg-color
-Give your site a random background color from the Bad Idea Factory brand guidelines
+Give your site a random background color from the **official** Bad Idea Factory brand guidelines.
+
+NOTE: these are not the same colors from the actual Bad Idea Factory website, which does not use the same colors from the official Bad Idea Factory brand guidelines
 
 Compatibility: IE9+
 
