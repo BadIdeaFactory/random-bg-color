@@ -1,3 +1,6 @@
+[![Travis CI status](https://travis-ci.org/BadIdeaFactory/random-bg-color.svg?branch=master)](https://travis-ci.org/BadIdeaFactory/random-bg-color)
+[![Coverage Status](https://coveralls.io/repos/github/BadIdeaFactory/random-bg-color/badge.svg?branch=master)](https://coveralls.io/github/BadIdeaFactory/random-bg-color?branch=master)
+
 # random-bg-color
 Give your site a random background color from the Bad Idea Factory brand guidelines
 
