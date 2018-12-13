@@ -1,6 +1,6 @@
 {
   "name": "@biffud/random-bg-color",
-  "version": "1.0.0-alpha1",
+  "version": "1.0.0",
   "description": "Give your site a random background color from the Bad Idea Factory brand guidelines",
   "main": "src/index.js",
   "scripts": {
