@@ -51,6 +51,24 @@ const el = document.createElement('div')
 setRandomBgColor(el)
 ```
 
+### Prevent animated transitions
+
+Pass in an object to the second argument like this:
+
+```js
+setRandomBgColor(null, { disallowTransition: true })
+```
+
+### Set text color
+
+By default we don't adjust text colors. However, you might want us to, because some of the colors have poor contrast if you just use white the entire time. Use the following option:
+
+```js
+setRandomBgColor(null, { setTextColor: true })
+```
+
+The behavior of this is to set the `color` style of the same element where the `background-color` is changing. If you use this option you may want to set the `color: inherit` CSS property of child elements to make sure that they pick up changes to the text color.
+
 ### Override transition style
 
 This isn't a setting. Change it via CSS instead.
@@ -59,12 +77,4 @@ This isn't a setting. Change it via CSS instead.
 body {
   transition: background-color 500ms ease-in-out !important;
 }
-```
-
-### Prevent animated transitions
-
-Pass in an object to the second argument like this:
-
-```js
-setRandomBgColor(null, { disallowTransition: true })
 ```

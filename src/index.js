@@ -82,7 +82,15 @@
         } else if (css) {
           el.style.transition = css;
         }
-        el.style.backgroundColor = selectRandomColor();
+        var color = selectRandomColor();
+        el.style.backgroundColor = color;
+        if (options.setTextColor === true) {
+          if (color === '#fcea10' || color === '#ffda00') {
+            el.style.color = 'black';
+          } else {
+            el.style.color = 'white';
+          }
+        }
       })
     }
   }
