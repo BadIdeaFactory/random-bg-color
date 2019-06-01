@@ -9,7 +9,7 @@
     module.exports = factory();
   } else {
     // Browser globals (root is window)
-    root.BIFFUD = root.BIFFUD || {}
+    root.BIFFUD = root.BIFFUD || {};
     root.BIFFUD.setRandomBgColor = factory();
   }
 }(typeof self !== 'undefined' ? self : this, function () {
