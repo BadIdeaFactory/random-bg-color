@@ -29,8 +29,8 @@
     document.body.appendChild(example)
     window.setInterval(function () {
       BIFFUD.setRandomBgColor(null)
-      BIFFUD.setRandomBgColor('h1', { disallowTransition: true, setTextColor: true })
-      BIFFUD.setRandomBgColor(example, { setTextColor: true })
+      BIFFUD.setRandomBgColor('h1', { disallowTransition: true, autoTextContrast: true })
+      BIFFUD.setRandomBgColor(example, { autoTextContrast: true })
     }, 1000)
   </script>
 </body>

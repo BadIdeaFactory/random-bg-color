@@ -84,7 +84,7 @@
         }
         var color = selectRandomColor();
         el.style.backgroundColor = color;
-        if (options.setTextColor === true) {
+        if (options.autoTextContrast === true) {
           if (color === '#fcea10' || color === '#ffda00') {
             el.style.color = 'black';
           } else {
