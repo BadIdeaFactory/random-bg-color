@@ -27,6 +27,14 @@ describe('setRandomBgColor', function () {
     expect(document.body.style.transition).to.equal(undefined);
   });
 
+  it('appends a transition if it already exists', function () {
+    const el = document.createElement('div');
+    el.style.transition = 'transform 400ms ease';
+    setRandomBgColor(el);
+
+    expect(el.style.transition).to.equal('transform 400ms ease, background-color 120ms');
+  });
+
   it('sets the background color for an element selector', function () {
     document.body.innerHTML = '<p id="my-el">foo</p>'
     setRandomBgColor('#my-el');
