@@ -57,6 +57,8 @@
    * @param {Object} options - accepts the following properties:
    *    disallowTransition - if false, does not override
    *      the CSS transition property. Defaults to `true`
+   *    autoTextContrast - if true, attempts to automatically
+   *      adjust text color to contrast with background color
    * @return undefined (this is a side effect)
    */
   function setRandomBgColor (selector, options) {
