@@ -7,7 +7,6 @@
   <title>@biffud/random-bg-color test</title>
   <style>
     body {
-      color: white;
       font-family: sans-serif;
       margin: 0;
       padding: 20px;
@@ -22,16 +21,16 @@
   </style>
 </head>
 <body>
-  <h1>You can apply background changes to an element too</h1>
+  <h1>You can apply background changes to an element</h1>
   <script src="../src/index.js"></script>
   <script>
     var example = document.createElement('p')
     example.textContent = 'You can even do it with elements created dynamically'
     document.body.appendChild(example)
     window.setInterval(function () {
-      BIFFUD.setRandomBgColor(null, { disallowTransition: false })
-      BIFFUD.setRandomBgColor('h1', { disallowTransition: true })
-      BIFFUD.setRandomBgColor(example)
+      BIFFUD.setRandomBgColor(null)
+      BIFFUD.setRandomBgColor('h1', { disallowTransition: true, autoTextContrast: true })
+      BIFFUD.setRandomBgColor(example, { autoTextContrast: true })
     }, 1000)
   </script>
 </body>

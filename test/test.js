@@ -56,6 +56,15 @@ describe('setRandomBgColor', function () {
     expect(el.style.transition).to.equal('background-color 120ms');
   });
 
+  it('adjusts the text contrast if `autoTextContrast` is set', function () {
+    const el = document.createElement('div');
+    setRandomBgColor(el, { autoTextContrast: true });
+
+    // We can't deterministically set a background color on this test,
+    // so test to make sure that color property is set correctly
+    expect(el.style.color).to.match(/white|black/);
+  });
+
   // Reset the global object and JSDOM after each test
   afterEach(function () {
     global.document = undefined;

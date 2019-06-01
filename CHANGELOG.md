@@ -1,3 +1,7 @@
+# v1.1.0
+
+- Add a new option `autoTextContrast` which also allows it to set the appropriate white or black text color to contrast with the background color.
+
 # v1.0.0
 
 - **Official release.**
