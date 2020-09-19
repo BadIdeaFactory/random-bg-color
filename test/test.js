@@ -24,7 +24,10 @@ describe('setRandomBgColor', function () {
     setRandomBgColor(null, { disallowTransition: true });
 
     expect(document.body.style.backgroundColor).to.match(/rgb\([0-9]+, [0-9]+, [0-9]+\)/);
-    expect(document.body.style.transition).to.equal(undefined);
+
+    // Browser behavior (CSS2Properties spec?) is to return an empty
+    // string for undefined styles (rather than `undefined`)
+    expect(document.body.style.transition).to.equal('');
   });
 
   it('appends a transition if it already exists', function () {
