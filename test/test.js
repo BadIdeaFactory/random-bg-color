@@ -18,6 +18,10 @@ describe('setRandomBgColor', function () {
 
     expect(document.body.style.backgroundColor).to.match(/rgb\([0-9]+, [0-9]+, [0-9]+\)/);
     expect(document.body.style.transition).to.equal('background-color 120ms');
+
+    // We can't deterministically set a background color on this test,
+    // so test to make sure that dark mode is set correctly
+    expect(document.body.dataset.darkMode).to.match(/true|false/);
   });
 
   it('does not add transition if `disallowTransition` is true', function () {
@@ -45,6 +49,10 @@ describe('setRandomBgColor', function () {
     const el = document.body.querySelector('#my-el');
     expect(el.style.backgroundColor).to.match(/rgb\([0-9]+, [0-9]+, [0-9]+\)/);
     expect(el.style.transition).to.equal('background-color 120ms');
+
+    // We can't deterministically set a background color on this test,
+    // so test to make sure that dark mode is set correctly
+    expect(el.dataset.darkMode).to.match(/true|false/);
   });
 
   it('sets the background color for multiple elements via selector', function () {
@@ -56,6 +64,10 @@ describe('setRandomBgColor', function () {
       const el = els[i]
       expect(el.style.backgroundColor).to.match(/rgb\([0-9]+, [0-9]+, [0-9]+\)/);
       expect(el.style.transition).to.equal('background-color 120ms');
+
+      // We can't deterministically set a background color on this test,
+      // so test to make sure that dark mode is set correctly
+      expect(el.dataset.darkMode).to.match(/true|false/);
     }
   });
 
@@ -65,6 +77,10 @@ describe('setRandomBgColor', function () {
 
     expect(el.style.backgroundColor).to.match(/rgb\([0-9]+, [0-9]+, [0-9]+\)/);
     expect(el.style.transition).to.equal('background-color 120ms');
+
+    // We can't deterministically set a background color on this test,
+    // so test to make sure that dark mode is set correctly
+    expect(el.dataset.darkMode).to.match(/true|false/);
   });
 
   it('adjusts the text contrast if `autoTextContrast` is set', function () {
@@ -74,6 +90,12 @@ describe('setRandomBgColor', function () {
     // We can't deterministically set a background color on this test,
     // so test to make sure that color property is set correctly
     expect(el.style.color).to.match(/white|black/);
+
+    // But we can also test that text contrast matches the dark mode setting
+    expect(
+      (el.style.color === 'white' && el.dataset.darkMode === 'true') ||
+      (el.style.color === 'black' && el.dataset.darkMode === 'false')
+    ).to.equal(true);
   });
 
   // Reset the global object and JSDOM after each test

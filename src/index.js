@@ -86,10 +86,14 @@
         }
         var color = selectRandomColor();
         el.style.backgroundColor = color;
-        if (options.autoTextContrast === true) {
-          if (color === '#fcea10' || color === '#ffda00') {
+        if (color === '#fcea10' || color === '#ffda00') {
+          el.dataset.darkMode = false;
+          if (options.autoTextContrast === true) {
             el.style.color = 'black';
-          } else {
+          }
+        } else {
+          el.dataset.darkMode = true;
+          if (options.autoTextContrast === true) {
             el.style.color = 'white';
           }
         }

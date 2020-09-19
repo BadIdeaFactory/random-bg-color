@@ -1,3 +1,8 @@
+# v1.2.0
+
+- Add a `data-dark-mode` data attribute to the styled element for finer-grained adjustments based on background color.
+- Bumped test dependencies and update tests.
+
 # v1.1.1
 
 - Minor code style fixes.

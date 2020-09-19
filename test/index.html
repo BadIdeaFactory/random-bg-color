@@ -18,6 +18,12 @@
     p {
       padding: 10px;
     }
+    body[data-dark-mode="true"] {
+      color: white;
+    }
+    body[data-dark-mode="false"] {
+      color: black;
+    }
   </style>
 </head>
 <body>
@@ -27,6 +33,10 @@
     var example = document.createElement('p')
     example.textContent = 'You can even do it with elements created dynamically'
     document.body.appendChild(example)
+    var example2 = document.createElement('p')
+    example2.textContent = 'There is a "dark mode" data attribute that lets you style child content, like this text, based on whether the background is light or dark.'
+    document.body.appendChild(example2)
+
     window.setInterval(function () {
       BIFFUD.setRandomBgColor(null)
       BIFFUD.setRandomBgColor('h1', { disallowTransition: true, autoTextContrast: true })
