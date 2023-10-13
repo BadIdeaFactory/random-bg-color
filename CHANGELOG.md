@@ -1,3 +1,7 @@
+# v1.3.0
+
+- Version update only. Bumped test dependencies. Everything should work in Node.js v16 up to at least v20.
+
 # v1.2.0
 
 - Add a `data-dark-mode` data attribute to the styled element for finer-grained adjustments based on background color.
