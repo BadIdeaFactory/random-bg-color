@@ -1,3 +1,20 @@
+# v2.0.0
+
+- **Modernization release.** Rewritten in TypeScript and built with tsup.
+- Now published as ESM, CommonJS, and a standalone browser (IIFE) bundle, with
+  bundled TypeScript type definitions.
+- **Breaking changes:**
+  - `setRandomBgColor` is now a **named export** in every format:
+    - ESM: `import { setRandomBgColor } from '@biffud/random-bg-color'`
+    - CommonJS: `const { setRandomBgColor } = require('@biffud/random-bg-color')`
+      (previously `require(...)` returned the function directly).
+  - The `<script>` tag global moved from `BIFFUD.setRandomBgColor` to
+    `RandomBgColor.setRandomBgColor`.
+- Tooling: ESLint + Prettier, Vitest (with jsdom) for tests, and GitHub Actions
+  CI running lint, format, typecheck, tests, and build. Replaces Travis CI.
+- Development runs on Node 24 (pinned via `.node-version`); the published package
+  targets ES2018 and supports Node 18+.
+
 # v1.3.0
 
 - Version update only. Bumped test dependencies. Everything should work in Node.js v16 up to at least v20.

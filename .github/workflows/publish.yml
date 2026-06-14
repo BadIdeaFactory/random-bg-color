@@ -1,0 +1,73 @@
+name: Publish
+
+# Publishes to npm automatically when the version in package.json changes on
+# main (e.g. after a release PR is merged). Can also be run manually from the
+# Actions tab.
+#
+# Authentication uses npm OIDC trusted publishing (no NPM_TOKEN secret): the
+# package must have this repo + workflow configured as a trusted publisher at
+# https://www.npmjs.com/package/@biffud/random-bg-color/access. Provenance is
+# generated automatically.
+on:
+  push:
+    branches: [main]
+    paths:
+      - package.json
+  workflow_dispatch:
+
+permissions:
+  contents: write # create the release tag
+  id-token: write # npm OIDC trusted publishing + provenance
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          registry-url: https://registry.npmjs.org
+          cache: npm
+
+      - run: npm ci
+
+      - name: Check whether the version is already published
+        id: version
+        run: |
+          NAME=$(node -p "require('./package.json').name")
+          LOCAL=$(node -p "require('./package.json').version")
+          REMOTE=$(npm view "$NAME@$LOCAL" version 2>/dev/null || echo "")
+          echo "value=$LOCAL" >> "$GITHUB_OUTPUT"
+          if [ -n "$REMOTE" ]; then
+            echo "$NAME@$LOCAL is already published; nothing to do."
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "$NAME@$LOCAL is new; will publish."
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verify before publishing
+        if: steps.version.outputs.publish == 'true'
+        run: |
+          npm run lint
+          npm run typecheck
+          npm test
+          npm run build
+
+      - name: Publish to npm
+        if: steps.version.outputs.publish == 'true'
+        run: npm publish --access public
+
+      - name: Tag the release
+        if: steps.version.outputs.publish == 'true'
+        run: |
+          TAG="v${{ steps.version.outputs.value }}"
+          if git ls-remote --exit-code --tags origin "$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG already exists; skipping."
+          else
+            git tag "$TAG"
+            git push origin "$TAG"
+          fi
