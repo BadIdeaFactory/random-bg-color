@@ -1,5 +1,4 @@
-[![Travis CI status](https://travis-ci.org/BadIdeaFactory/random-bg-color.svg?branch=master)](https://travis-ci.org/BadIdeaFactory/random-bg-color)
-[![Coverage Status](https://coveralls.io/repos/github/BadIdeaFactory/random-bg-color/badge.svg?branch=master)](https://coveralls.io/github/BadIdeaFactory/random-bg-color?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/BadIdeaFactory/random-bg-color/badge.svg?branch=main)](https://coveralls.io/github/BadIdeaFactory/random-bg-color?branch=main)
 
 # random-bg-color
 Give your site a random background color from the **official** Bad Idea Factory brand guidelines.
@@ -29,7 +28,7 @@ var setRandomBgColor = require('@biffud/random-bg-color')
 ```html
 <!-- usage with CDN -->
 <!-- exported on the BIFFUD global object -->
-<script src="https://unpkg.com/@biffud/random-bg-color@1.0.0/src/index.js"></script>
+<script src="https://unpkg.com/@biffud/random-bg-color@1.4.0/src/index.js"></script>
 <script>
   BIFFUD.setRandomBgColor()
 </script>
