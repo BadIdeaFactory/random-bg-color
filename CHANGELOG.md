@@ -1,3 +1,8 @@
+# v1.4.0
+
+- Version update for test dependencies. Tests now require Node v22, v24, v26 or higher.
+- Removes Travis CI configuration.
+
 # v1.3.0
 
 - Version update only. Bumped test dependencies. Everything should work in Node.js v16 up to at least v20.
